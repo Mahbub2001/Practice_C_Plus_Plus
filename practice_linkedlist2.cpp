@@ -67,6 +67,18 @@ void delete_head(Node *&head)
     delete delete_node;
 }
 
+void delete_tail(Node *head)
+{
+    Node *temp = head;
+    while (temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+    Node *delete_Node = temp->next;
+    temp->next = NULL;
+    delete delete_Node;
+}
+
 void sort_linkedlist(Node *head)
 {
     for (Node *i = head; i->next != NULL; i = i->next)
@@ -114,10 +126,11 @@ int main()
         cout << "4.insert at any position : " << endl;
         cout << "5.delete from any position : " << endl;
         cout << "6.delete at head : " << endl;
-        cout << "7.Input from user : " << endl;
-        cout << "8.reverse the linkedlist : " << endl;
-        cout << "9.sort the linkedlist : " << endl;
-        cout << "10.terminate the program: " << endl;
+        cout << "7.delete at tail : " << endl;
+        cout << "8.Input from user : " << endl;
+        cout << "9.reverse the linkedlist : " << endl;
+        cout << "10.sort the linkedlist : " << endl;
+        cout << "11.terminate the program: " << endl;
         cin >> choice;
 
         if (choice == 1)
@@ -167,6 +180,10 @@ int main()
         }
         else if (choice == 7)
         {
+            delete_tail(head);
+        }
+        else if (choice == 8)
+        {
             int number;
             cout << "enter the number of inputs : " << endl;
             cin >> number;
@@ -177,15 +194,15 @@ int main()
                 insert_at_tail(head, value);
             }
         }
-        else if (choice == 8)
+        else if (choice == 9)
         {
             reverse_linkedlist(head);
         }
-        else if (choice == 9)
+        else if (choice == 10)
         {
             sort_linkedlist(head);
         }
-        else if (choice == 10)
+        else if (choice == 11)
         {
             break;
         }

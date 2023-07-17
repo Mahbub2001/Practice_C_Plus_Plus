@@ -78,37 +78,47 @@ Node *input_tree()
     return root;
 }
 
-void level_order(Node *root)
+void preorder(Node *root)
 {
-    queue<Node *> q;
-
-    q.push(root);
-
-    while (!q.empty())
-    {
-        // 1.ber kore ana
-        Node *f = q.front();
-        q.pop();
-
-        // 2.jabotiyo ja kaj ase
-        cout << f->val << " ";
-
-        // 3.tar children gulo k rakha
-        if (f->left != NULL)
-        {
-            q.push(f->left);
-        }
-        if (f->right != NULL)
-        {
-            q.push(f->right);
-        }
-    }
+    if (root == NULL)
+        return;
+    cout << root->val << " ";
+    preorder(root->left);
+    preorder(root->right);
 }
+
+// void level_order(Node *root)
+// {
+//     queue<Node *> q;
+
+//     q.push(root);
+
+//     while (!q.empty())
+//     {
+//         // 1.ber kore ana
+//         Node *f = q.front();
+//         q.pop();
+
+//         // 2.jabotiyo ja kaj ase
+//         cout << f->val << " ";
+
+//         // 3.tar children gulo k rakha
+//         if (f->left != NULL)
+//         {
+//             q.push(f->left);
+//         }
+//         if (f->right != NULL)
+//         {
+//             q.push(f->right);
+//         }
+//     }
+// }
 
 int main()
 {
     Node *root = input_tree();
-    level_order(root);
+    // level_order(root);
+    preorder(root);
 
     return 0;
 }
