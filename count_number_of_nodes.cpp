@@ -83,9 +83,7 @@ int count(Node *root)
 {
     if (root == NULL)
         return 0;
-    int l = count(root->left);
-    int r = count(root->right);
-    return l + r + 1;
+    return count(root->left) + count(root->right) + 1;
 }
 
 int count_leaf(Node *root)
@@ -96,9 +94,7 @@ int count_leaf(Node *root)
         return 1;
     else
     {
-        int l = count_leaf(root->left);
-        int r = count_leaf(root->right);
-        return l + r;
+        return count_leaf(root->left) + count_leaf(root->right);
     }
 }
 int count_max_height(Node *root)
@@ -120,6 +116,5 @@ int main()
 
     return 0;
 }
-
 
 // 10 20 30 70 150 120 40 80 90 -1 -1 130 -1 60 50 -1 -1 100 -1 -1 140 -1 -1 -1 -1 -1 110 -1 -1 -1 -1
