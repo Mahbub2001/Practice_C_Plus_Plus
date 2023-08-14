@@ -1,33 +1,33 @@
-#include <bits/stdc++.h>
-using namespace std;
-long long MOD = 1000000007;
-long long result(long long x, long long y, long long n)
-{
-    if (y == 0)
-        return 1;
-    long long fac = result(x, y / 2, n);
-    cout <<"...." <<fac << endl;
-    fac = fac * fac % n;
-    if (y % 2 == 1)
-    {
-        fac = fac * x % n;
-    }
-    return fac;
-}
-int main()
-{
-    int T;
-    cin >> T;
-    int i = 0;
-    while (T--)
-    {
-        int n;
-        cin >> n;
-        cout << "Case #" << ++i << ": " << n * result(2, n - 1, MOD) % MOD << endl;
-    }
+// #include <bits/stdc++.h>
+// using namespace std;
+// long long MOD = 1000000007;
+// long long result(long long x, long long y, long long n)
+// {
+//     if (y == 0)
+//         return 1;
+//     long long fac = result(x, y / 2, n);
+//     cout <<"...." <<fac << endl;
+//     fac = fac * fac % n;
+//     if (y % 2 == 1)
+//     {
+//         fac = fac * x % n;
+//     }
+//     return fac;
+// }
+// int main()
+// {
+//     int T;
+//     cin >> T;
+//     int i = 0;
+//     while (T--)
+//     {
+//         int n;
+//         cin >> n;
+//         cout << "Case #" << ++i << ": " << n * result(2, n - 1, MOD) % MOD << endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -922,3 +922,49 @@ int main()
 //     cout<<v3.front()<<" "<<v3.back()<<endl;
 
 // }
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        pair<int, int> p(0, 0);
+        int n;
+        cin >> n;
+        string ch;
+        cin >> ch;
+        int flag = false;
+        for (int i = 0; i < n; i++)
+        {
+            if (ch[i] == 'U')
+            {
+                p.second = p.second + 1;
+            }
+            else if (ch[i] == 'D')
+            {
+                p.second = p.second - 1;
+            }
+            else if (ch[i] == 'L')
+            {
+                p.first = p.first - 1;
+            }
+            else if (ch[i] == 'R')
+            {
+                p.first = p.first + 1;
+            }
+            if (p.first == 1 && p.second == 1)
+            {
+                flag = true; 
+                cout << "YES" << endl;
+                break;
+            }
+        }
+        if (flag == false)
+            cout << "NO" << endl;
+    }
+
+    return 0;
+}
