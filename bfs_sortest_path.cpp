@@ -3,6 +3,7 @@ using namespace std;
 
 const int N = 1e5 + 5;
 vector<int> graph[N];
+
 bool visited[N];
 int level[N];
 int parent[N];
@@ -65,9 +66,10 @@ int main()
 
     reverse(path.begin(), path.end());
 
-    cout<<"Path : ";
-    for(int node:path){
-        cout<<node <<" ";
+    cout << "Path : ";
+    for (int node : path)
+    {
+        cout << node << " ";
     }
 
     return 0;
@@ -86,4 +88,6 @@ int main()
 1
 7
 
+Shortage Distance : 3
+Path : 1 2 5 7
 */

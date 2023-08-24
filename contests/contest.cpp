@@ -923,48 +923,679 @@
 
 // }
 
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int t;
+//     cin >> t;
+//     while (t--)
+//     {
+//         pair<int, int> p(0, 0);
+//         int n;
+//         cin >> n;
+//         string ch;
+//         cin >> ch;
+//         int flag = false;
+//         for (int i = 0; i < n; i++)
+//         {
+//             if (ch[i] == 'U')
+//             {
+//                 p.second = p.second + 1;
+//             }
+//             else if (ch[i] == 'D')
+//             {
+//                 p.second = p.second - 1;
+//             }
+//             else if (ch[i] == 'L')
+//             {
+//                 p.first = p.first - 1;
+//             }
+//             else if (ch[i] == 'R')
+//             {
+//                 p.first = p.first + 1;
+//             }
+//             if (p.first == 1 && p.second == 1)
+//             {
+//                 flag = true;
+//                 cout << "YES" << endl;
+//                 break;
+//             }
+//         }
+//         if (flag == false)
+//             cout << "NO" << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int t;
+//     cin>>t;
+//     while(t--){
+//         string s;
+//         cin>>s;
+//         int n = s.length();
+//         string x = "";
+//         for(int i = 0; i < n; i++){
+//             x+="(";
+//         }
+//         for(int i = 0; i < n; i++){
+//             x+=")";
+//         }
+//         string y = "";
+//         int l = n;
+//         while(l--){
+//             y+="()";
+//         }
+//         if(x.find(s) == string::npos){
+//             cout<<"YES"<<endl;
+//             cout<<x<<endl;
+//         }
+//         else if(y.find(s) == string::npos){
+//             cout<<"YES"<<endl;
+//             cout<<y<<endl;
+//         }
+//         else{
+//             cout<<"NO"<<endl;
+//         }
+
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define fast                      \
+//     ios_base::sync_with_stdio(0); \
+//     cin.tie(0);                   \
+//     cout.tie(0)
+// #define nl "\n"
+
+// // void solve()
+// // {
+
+// // }
+// int main()
+// {
+//     int t, m, k, a1, ak;
+//     int ans;
+//     cin >> t;
+//     while (t--)
+//     {
+//         cin >> m >> k >> a1 >> ak;
+//         if (a1 == 0 && ak == 0)
+//         {
+//             ans = m / k + m - (m / k) * k;
+//             cout << ans << endl;
+//         }
+//         else if (a1 + ak >= m)
+//             cout << "0\n";
+//         else
+//         {
+//             int x = m - (k * ak + a1);
+//             if (x)
+//                 ans = ceil((float)x / k);
+//             else
+//                 ans = x;
+//             cout << ans << endl;
+//         }
+//     }
+
+//     // fast;
+//     // solve();
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int w, h, n, x1, y1, x2, y2;
+//     while (cin >> w >> h >> n && (w != 0 || h != 0 || n != 0))
+//     {
+//         vector<vector<bool>> flag(w + 1, vector<bool>(h + 1, true));
+//         while (n--)
+//         {
+//             cin >> x1 >> y1 >> x2 >> y2;
+//             for (int j = min(x1, x2); j <= max(x1, x2); j++)
+//                 for (int k = min(y1, y2); k <= max(y1, y2); k++)
+//                     flag[j][k] = false;
+//         }
+//         int count = 0;
+//         for (int i = 1; i <= w; i++)
+//             for (int j = 1; j <= h; j++)
+//                 if (flag[i][j])
+//                     count++;
+
+//         if (count == 0)
+//         {
+//             cout << "There is no empty spots." << endl;
+//         }
+//         else if (count == 1)
+//         {
+//             cout << "There is one empty spot." << endl;
+//         }
+//         else
+//         {
+//             cout << "There are " << count << " empty spots." << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int t;
+//     cin >> t;
+//     while (t--)
+//     {
+//         int n;
+//         cin >> n;
+//         int c = abs(((((n * 567) / 9 + 7492) * 235) / 47) - 498);
+//         cout << (c / 10) % 10 << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     string S;
+//     while (getline(cin, S))
+//     {
+//         map<char, int> mp;
+
+//         for (char c : S)
+//         {
+//             if (isalpha(c))
+//             {
+//                 mp[c]++;
+//             }
+//         }
+//         int count = 0;
+//         string s;
+
+//         for (const auto &p : mp)
+//         {
+//             if (p.second > count)
+//             {
+//                 count = p.second;
+//                 s = p.first;
+//             }
+//             else if (p.second == count)
+//             {
+//                 s += p.first;
+//             }
+//         }
+
+//         cout << s << " " << count << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int x, y, z;
+//     while (cin >> x >> y >> z && (x != 0 || y != 0 || z != 0))
+//     {
+//         vector<int>v{x,y,z};
+//         sort(v.begin(), v.end());
+//         if ((pow(v[0], 2) + pow(v[1], 2)) == (pow(v[2], 2)))
+//         {
+//             cout << "right" << endl;
+//         }
+//         else
+//         {
+//             cout << "wrong" << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int t;
+//     cin >> t;
+//     while (t--)
+//     {
+//         int s, d;
+//         cin >> s >> d;
+//         int x = (s + d) / 2;
+//         int y = (s - d) / 2;
+//         if (x >= 0 && y >= 0 && x + y == s && abs(x - y) == d)
+//         {
+//             cout << x << " " << y << endl;
+//         }
+//         else
+//         {
+//             cout << "impossible" << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main() {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int n, k;
+//     cin >> n >> k;
+//     int count = 0;
+//     for (int i = 0; i < n; i++) {
+//         int t;
+//         cin >> t;
+//         if (t % k == 0) {
+//             count++;
+//         }
+//     }
+//     cout << count << endl;
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int n;
+//     cin >> n;
+//     while (n--)
+//     {
+//         int f, total = 0;
+//         cin >> f;
+//         while (f--)
+//         {
+//             int x, y, z;
+//             cin >> x >> y >> z;
+//             total += x * z;
+//         }
+//         cout << total << endl;
+//     }
+
+//     return 0;
+// }
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+//     int f = 0;
+//     int n, m;
+//     while (cin >> n >> m && (n != 0 && n != 0))
+//     {
+//         f++;
+//         if (f > 1)
+//         {
+//             cout << endl;
+//         }
+//         cout << "Field #" << f << ":" << endl;
+
+//         vector<string> arr(n);
+
+//         for (int i = 0; i < n; i++)
+//         {
+//             cin >> arr[i];
+//         }
+
+//         for (int i = 0; i < n; i++)
+//         {
+//             for (int j = 0; j < m; j++)
+//             {
+//                 if (arr[i][j] == '*')
+//                 {
+//                     cout << '*';
+//                 }
+//                 else
+//                 {
+//                     int count = 0;
+//                     for (int k = -1; k <= 1; k++)
+//                     {
+//                         for (int l = -1; l <= 1; l++)
+//                         {
+//                             int q = i + k;
+//                             int r = j + l;
+//                             if (q >= 0 && q < n && r >= 0 && r < m && arr[q][r] == '*')
+//                             {
+//                                 count++;
+//                             }
+//                         }
+//                     }
+//                     cout << count;
+//                 }
+//             }
+//             cout << endl;
+//         }
+//     }
+
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <string>
+// using namespace std;
+
+// bool add(string my_map[], string key){
+// 	int h, hash, new_hash;
+// 	h = 0;
+// 	for(int i=0; i<key.length(); i++){
+// 		h += int(key[i])*(i+1);
+// 	}
+// 	hash = (h*19)%101;
+// 	// Check if duplicate value
+// 	if(my_map[hash] == key){
+// 		// Hash already added in first position
+// 		return false;
+// 	}
+// 	// Check if hash added in any other position
+// 	else{
+// 		for(int j=1; j<=19; j++){
+// 			new_hash = (hash+(23*j)+(j*j))%101;
+// 			if(my_map[new_hash] == key){
+// 				return false;
+// 			}
+// 		}
+// 	}
+// 	// It is not duplicate value, therefore ADD
+// 	if(my_map[hash] == ""){
+// 		my_map[hash] = key;
+// 		return true;
+// 	}
+// 	for(int j=1; j<=19; j++){
+// 		new_hash = (hash+(j*j)+(23*j))%101;
+// 		//If new index is empty
+// 		if(my_map[new_hash] == ""){
+// 			my_map[new_hash] = key;
+// 			return true;
+// 		}
+// 	}
+// 	return false;
+// }
+
+// bool del(string my_map[], string key){
+// 	for(int i=0; i<101; i++){
+// 		// If the key was found, remove it
+// 		if(my_map[i] == key){
+// 			my_map[i] = "";
+// 			return true;
+// 		}
+// 	}
+// 	return false;
+// }
+
+// int main(){
+// 	int N, m, number_of_entries;
+// 	string op, key;
+// 	string my_map[101];
+// 	cin>>N;
+// 	for(int testcase=0; testcase<N; testcase++){
+// 		cin>>m;
+// 		// Start from 0 for each testcase
+// 		number_of_entries = 0;
+// 		// Clear the map, for each testcase
+// 		for(int i=0; i<101; i++){
+// 			my_map[i] = "";
+// 		}
+// 		for(int operation=0; operation<m; operation++){
+// 			cin>>op;
+// 			// ADD operation
+// 			if(op.substr(0,3) == "ADD"){
+// 				key = op.substr(4);
+// 				if(add(my_map, key)){
+// 					number_of_entries += 1;
+// 				}
+// 			}
+// 			// DEL operation
+// 			else if(op.substr(0,3) == "DEL"){
+// 				key = op.substr(4);
+// 				if(del(my_map, key)){
+// 					number_of_entries -= 1;
+// 				}
+// 			}
+// 		}
+// 		// Print number_of_entries and my_map
+// 		cout<<number_of_entries<<"\n";
+// 		for(int i=0; i<101; i++){
+// 			if(my_map[i] != ""){
+// 				cout<<i<<":"<<my_map[i]<<"\n";
+// 			}
+// 		}
+// 	}
+// 	return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// map<char, char> mp = {
+//     {'A', '2'}, {'B', '2'}, {'C', '2'}, {'D', '3'}, {'E', '3'}, {'F', '3'}, {'G', '4'}, {'H', '4'}, {'I', '4'}, {'J', '5'}, {'K', '5'}, {'L', '5'}, {'M', '6'}, {'N', '6'}, {'O', '6'}, {'P', '7'}, {'Q', '7'}, {'R', '7'}, {'S', '7'}, {'T', '8'}, {'U', '8'}, {'V', '8'}, {'W', '9'}, {'X', '9'}, {'Y', '9'}, {'Z', '9'}};
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+//     string s;
+
+//     while (getline(cin, s))
+//     {
+//         string n;
+
+//         for (char c : s)
+//         {
+//             if (isalpha(c))
+//             {
+//                 n += mp[toupper(c)];
+//             }
+//             else
+//             {
+//                 n += c;
+//             }
+//         }
+
+//         cout << n << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+
+//     int A, B, C, D;
+//     while (cin >> A >> B >> C >> D && (A != 0 || B != 0 || C != 0 || D != 0))
+//     {
+//         int result = 120;
+//         result += (A - B + 40) % 40;
+//         result += (C - B + 40) % 40;
+//         result += (C - D + 40) % 40;
+//         cout << result * 9 << endl;
+//     }
+
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+//     int n;
+//     char s, ch;
+//     cin >> s >> ch;
+//     cin >> n;
+//     string S = "v<^>";
+//     int f = S.find(s);
+//     int k = (f + n) % 4;
+//     int l = ((f - n) % 4 + 4) % 4;
+
+//     cout << (S[k] == S[l] ? "undefined" : (S[k] == ch ? "cw" : "ccw"));
+//     return 0;
+// }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+//     cout.tie(0);
+
+//     string s;
+
+//     bool flag = true;
+//     while (getline(cin, s))
+//     {
+//         for (char ch : s)
+//         {
+//             if (ch == '"')
+//             {
+//                 if (flag)
+//                 {
+//                     cout << "``";
+//                 }
+//                 else
+//                 {
+//                     cout << "''";
+//                 }
+//                 flag = !flag;
+//             }
+//             else
+//             {
+//                 cout << ch;
+//             }
+//         }
+//         cout << endl;
+//     }
+
+//     return 0;
+// }
+
 #include <bits/stdc++.h>
 using namespace std;
+#define endl "\n";
+const int N = 1e5 + 5;
+
+char A[N];
+int B[N];
+
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int n;
+    cin >> n;
+    int w, x, y, z;
+    int t = 0;
+    cin >> A;
+    
+    map<char, int> mp = {
+        {'A', 1},
+        {'B', 2},
+        {'C', 3},
+        {'D', 4}
+    };
+    
+    int flag = 0;
+    for (int i = 0; i < 2 * n - 1; i += 2)
     {
-        pair<int, int> p(0, 0);
-        int n;
-        cin >> n;
-        string ch;
-        cin >> ch;
-        int flag = false;
-        for (int i = 0; i < n; i++)
-        {
-            if (ch[i] == 'U')
-            {
-                p.second = p.second + 1;
-            }
-            else if (ch[i] == 'D')
-            {
-                p.second = p.second - 1;
-            }
-            else if (ch[i] == 'L')
-            {
-                p.first = p.first - 1;
-            }
-            else if (ch[i] == 'R')
-            {
-                p.first = p.first + 1;
-            }
-            if (p.first == 1 && p.second == 1)
-            {
-                flag = true; 
-                cout << "YES" << endl;
+        w = mp[A[i]];
+        x = mp[A[i + 1]];
+        
+        for (int j = 1; j <= 4; j++) {
+            if (j != w && j != x) {
+                B[t++] = j;
+                y = j;
                 break;
             }
         }
-        if (flag == false)
-            cout << "NO" << endl;
+        
+        for (int j = 1; j <= 4; j++) {
+            if (j != w && j != x && j != y) {
+                B[t++] = j;
+                z = j;
+                break;
+            }
+        }
+
+        if (flag == 0) {
+            flag = 1;
+        }
+        else {
+            if (y == B[t - 3]) {
+                swap(B[t - 1], B[t - 2]);
+            }
+        }
+    }
+
+    for (int i = 0; i < t; i++) {
+        if (B[i] == 1)
+            cout << "A";
+        else if (B[i] == 2)
+            cout << "B";
+        else if (B[i] == 3)
+            cout << "C";
+        else if (B[i] == 4)
+            cout << "D";
     }
 
     return 0;
 }
+
+
