@@ -1525,77 +1525,77 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
-#define endl "\n";
-const int N = 1e5 + 5;
+// #include <bits/stdc++.h>
+// using namespace std;
+// #define endl "\n";
+// const int N = 1e5 + 5;
 
-char A[N];
-int B[N];
+// char A[N];
+// int B[N];
 
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+// int main()
+// {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(0);
+//     cout.tie(0);
 
-    int n;
-    cin >> n;
-    int w, x, y, z;
-    int t = 0;
-    cin >> A;
+//     int n;
+//     cin >> n;
+//     int w, x, y, z;
+//     int t = 0;
+//     cin >> A;
     
-    map<char, int> mp = {
-        {'A', 1},
-        {'B', 2},
-        {'C', 3},
-        {'D', 4}
-    };
+//     map<char, int> mp = {
+//         {'A', 1},
+//         {'B', 2},
+//         {'C', 3},
+//         {'D', 4}
+//     };
     
-    int flag = 0;
-    for (int i = 0; i < 2 * n - 1; i += 2)
-    {
-        w = mp[A[i]];
-        x = mp[A[i + 1]];
+//     int flag = 0;
+//     for (int i = 0; i < 2 * n - 1; i += 2)
+//     {
+//         w = mp[A[i]];
+//         x = mp[A[i + 1]];
         
-        for (int j = 1; j <= 4; j++) {
-            if (j != w && j != x) {
-                B[t++] = j;
-                y = j;
-                break;
-            }
-        }
+//         for (int j = 1; j <= 4; j++) {
+//             if (j != w && j != x) {
+//                 B[t++] = j;
+//                 y = j;
+//                 break;
+//             }
+//         }
         
-        for (int j = 1; j <= 4; j++) {
-            if (j != w && j != x && j != y) {
-                B[t++] = j;
-                z = j;
-                break;
-            }
-        }
+//         for (int j = 1; j <= 4; j++) {
+//             if (j != w && j != x && j != y) {
+//                 B[t++] = j;
+//                 z = j;
+//                 break;
+//             }
+//         }
 
-        if (flag == 0) {
-            flag = 1;
-        }
-        else {
-            if (y == B[t - 3]) {
-                swap(B[t - 1], B[t - 2]);
-            }
-        }
-    }
+//         if (flag == 0) {
+//             flag = 1;
+//         }
+//         else {
+//             if (y == B[t - 3]) {
+//                 swap(B[t - 1], B[t - 2]);
+//             }
+//         }
+//     }
 
-    for (int i = 0; i < t; i++) {
-        if (B[i] == 1)
-            cout << "A";
-        else if (B[i] == 2)
-            cout << "B";
-        else if (B[i] == 3)
-            cout << "C";
-        else if (B[i] == 4)
-            cout << "D";
-    }
+//     for (int i = 0; i < t; i++) {
+//         if (B[i] == 1)
+//             cout << "A";
+//         else if (B[i] == 2)
+//             cout << "B";
+//         else if (B[i] == 3)
+//             cout << "C";
+//         else if (B[i] == 4)
+//             cout << "D";
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
 

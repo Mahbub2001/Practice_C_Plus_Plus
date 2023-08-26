@@ -1,1 +1,1 @@
-{"name":"Local: contest","url":"e:\\Program Files\\C++\\contests\\contest.cpp","tests":[{"id":1692523781102,"input":"1\nCB","output":"AD"},{"id":1692793858804,"input":"2\nABAD","output":"BCDC"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Program Files\\C++\\contests\\contest.cpp","group":"local","local":true}
+{"name":"Local: contest","url":"e:\\Program Files\\C++\\contests\\contest.cpp","tests":[],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Program Files\\C++\\contests\\contest.cpp","group":"local","local":true}
