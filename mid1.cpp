@@ -215,18 +215,18 @@
 // using namespace std;
 // #define endl "\n";
 
-// void bfs(const vector<vector<pair<int, int>>> &graph, int S, int d, int dw)
+// void bfs(const vector<vector<pair<long long int,long long int>>> &graph, int S, int d, int dw)
 // {
 //     vector<int> dis(graph.size(), INT_MAX);
-//     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+//     priority_queue<pair<long long int, long long int>, vector<pair<long long int,long long int>>, greater<pair<long long int, long long int>>> pq;
 
 //     dis[S] = 0;
 //     pq.push({0, S});
 
 //     while (!pq.empty())
 //     {
-//         int u = pq.top().second;
-//         int d = pq.top().first;
+//         long long int u = pq.top().second;
+//         long long int d = pq.top().first;
 //         pq.pop();
 
 //         if (d > dis[u])
@@ -234,8 +234,8 @@
 
 //         for (auto eg : graph[u])
 //         {
-//             int v = eg.first;
-//             int w = eg.second;
+//             long long int v = eg.first;
+//             long long int w = eg.second;
 
 //             if (dis[u] + w < dis[v])
 //             {
@@ -264,13 +264,12 @@
 //     int N, E;
 //     cin >> N >> E;
 
-//     vector<vector<pair<int, int>>> graph(N + 1); 
+//     vector<vector<pair<long long int, long long int>>> graph(N + 1); 
 //     for (int i = 0; i < E; i++)
 //     {
 //         int a, b, w;
 //         cin >> a >> b >> w;
 //         graph[a].push_back({b, w});
-//         graph[b].push_back({a, w});
 //     }
 
 //     int S;
@@ -290,3 +289,81 @@
 //     return 0;
 // }
 
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define endl "\n";
+#define pi pair<int, int>
+
+const int N = 105;
+int dist[N][N];
+bool vis[N][N];
+int n, m;
+vector<pi> path = {{-2, -1}, {-2, 1}, {-1, -2}, {-1, 2}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
+
+bool isValid(int cI, int cJ)
+{
+    return cI >= 0 && cI < n && cJ >= 0 && cJ < m;
+}
+
+int bfs(int si, int sj, int ai, int aj)
+{
+    queue<pi> q;
+    q.push({si, sj});
+    dist[si][sj] = 0;
+    vis[si][sj] = true;
+
+    while (!q.empty())
+    {
+        pi parent = q.front();
+        int pI = parent.first;
+        int pJ = parent.second;
+        q.pop();
+
+        if (pI == ai && pJ == aj)
+            return dist[ai][aj];
+
+        for (int i = 0; i < 8; i++)
+        {
+            pi p = path[i];
+            int cI = pI + p.first;
+            int cJ = pJ + p.second;
+
+            if (isValid(cI, cJ) && !vis[cI][cJ])
+            {
+                vis[cI][cJ] = true;
+                q.push({cI, cJ});
+                dist[cI][cJ] = dist[pI][pJ] + 1;
+            }
+        }
+    }
+
+    return -1; 
+}
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int T;
+    cin >> T;
+
+    while (T--)
+    {
+        cin >> n >> m;
+        memset(dist, -1, sizeof(dist));
+        memset(vis, false, sizeof(vis));
+
+        int si, sj, ai, aj;
+        cin >> si >> sj >> ai >> aj;
+
+        int result = bfs(si, sj, ai, aj);
+
+        cout << result << endl;
+    }
+
+    return 0;
+}
