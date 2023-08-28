@@ -132,7 +132,8 @@ int main()
     for (int i = 1; i < path.size(); i++)
     {
         // path i-1 -> path[i]
-        if (path[i - 1].first == path[i].first)
+        //if row equal then  it will be left or right side
+        if (path[i - 1].first == path[i].first)//row equal
         {
             if (path[i - 1].second == path[i].second - 1)
             {
