@@ -14,11 +14,13 @@ int main()
     sort(cmb.begin(), cmb.end());
     sort(c.begin(), c.end());
 
-    if(c == cmb){
-        cout<<"YES"<<endl;
+    if (c == cmb)
+    {
+        cout << "YES" << endl;
     }
-    else{
-        cout<<"NO"<<endl;
+    else
+    {
+        cout << "NO" << endl;
     }
 
     return 0;
