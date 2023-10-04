@@ -38,27 +38,29 @@ void sieve()
     }
 }
 
+int check(const string &S)
+{
+    for (int i = 0; i < S.length() - 2; ++i)
+    {
+        if (S[i] == 'A' && S[i + 1] == 'B' && S[i + 2] == 'C')
+        {
+            return i + 1;
+        }
+    }
+    return -1;
+}
+
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
 
-    sieve();
+    int N;
+    string S;
+    cin >> N >> S;
 
-    int n;
-    while (cin >> n && n != 0)
-    {
-        auto it = lower_bound(primes.begin(), primes.end(), n);
-        if (*it == n)
-        {
-            cout << 0 << endl;
-        }
-        else
-        {
-            cout << *it - *(prev(it)) << endl;
-        }
-    }
+    cout << check(S) << endl;
 
     return 0;
 }

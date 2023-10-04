@@ -44,20 +44,44 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    sieve();
+    bool isPrefix = false, isSuffix = false;
+    int N, M;
+    string s1, s2;
+    cin >> N >> M >> s1 >> s2;
 
-    int n;
-    while (cin >> n && n != 0)
+    for (size_t i = 0; i < N; i++)
     {
-        auto it = lower_bound(primes.begin(), primes.end(), n);
-        if (*it == n)
+        if (s1[i] != s2[i])
         {
-            cout << 0 << endl;
+            isPrefix = true;
         }
-        else
+    }
+    int l = s2.size() - N;
+
+    for (size_t i = 0; i < N; i++)
+    {
+
+        if (s1[i] != s2[l])
         {
-            cout << *it - *(prev(it)) << endl;
+            isSuffix = true;
         }
+        l++;
+    }
+    if (!isPrefix && !isSuffix)
+    {
+        cout << 0 << endl;
+    }
+    else if (!isPrefix && isSuffix)
+    {
+        cout << 1 << endl;
+    }
+    else if (isPrefix && !isSuffix)
+    {
+        cout << 2 << endl;
+    }
+    else
+    {
+        cout << 3 << endl;
     }
 
     return 0;

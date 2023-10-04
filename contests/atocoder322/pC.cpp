@@ -44,19 +44,25 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    sieve();
-
-    int n;
-    while (cin >> n && n != 0)
+    int N, M;
+    cin >> N >> M;
+    vector<int> v(M);
+    for (int i = 0; i < M; i++)
     {
-        auto it = lower_bound(primes.begin(), primes.end(), n);
-        if (*it == n)
+        cin >> v[i];
+    }
+    int j = 0;
+    for (int i = 1; i <= N; i++)
+    {
+        if (i == v[j])
         {
             cout << 0 << endl;
+            j++;
+            continue;
         }
         else
         {
-            cout << *it - *(prev(it)) << endl;
+            cout << v[j] - i << endl;
         }
     }
 

@@ -44,21 +44,7 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    sieve();
-
-    int n;
-    while (cin >> n && n != 0)
-    {
-        auto it = lower_bound(primes.begin(), primes.end(), n);
-        if (*it == n)
-        {
-            cout << 0 << endl;
-        }
-        else
-        {
-            cout << *it - *(prev(it)) << endl;
-        }
-    }
-
+    
+    
     return 0;
 }

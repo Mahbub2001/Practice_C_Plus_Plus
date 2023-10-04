@@ -182,8 +182,8 @@
 
 //         if (f->left == NULL && f->right == NULL)
 //         {
-            // max_num = max(f->val, max_num);
-            // min_num = min(f->val, min_num);
+//             max_num = max(f->val, max_num);
+//             min_num = min(f->val, min_num);
 //         }
 
 //         if (f->left)
@@ -203,120 +203,120 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-class Node
-{
-public:
-    int val;
-    Node *left;
-    Node *right;
-    Node(int val)
-    {
-        this->val = val;
-        this->left = NULL;
-        this->right = NULL;
-    }
-};
+// class Node
+// {
+// public:
+//     int val;
+//     Node *left;
+//     Node *right;
+//     Node(int val)
+//     {
+//         this->val = val;
+//         this->left = NULL;
+//         this->right = NULL;
+//     }
+// };
 
-Node *take_input()
-{
+// Node *take_input()
+// {
 
-    int val;
-    cin >> val;
-    queue<Node *> q;
-    Node *root;
-    if (val == -1)
-    {
-        root = NULL;
-    }
-    else
-    {
-        root = new Node(val);
-    }
+//     int val;
+//     cin >> val;
+//     queue<Node *> q;
+//     Node *root;
+//     if (val == -1)
+//     {
+//         root = NULL;
+//     }
+//     else
+//     {
+//         root = new Node(val);
+//     }
 
-    if (root)
-        q.push(root);
+//     if (root)
+//         q.push(root);
 
-    while (!q.empty())
-    {
+//     while (!q.empty())
+//     {
 
-        Node *f = q.front();
-        q.pop();
+//         Node *f = q.front();
+//         q.pop();
 
-        int l, r;
-        cin >> l >> r;
-        Node *myLeft;
-        Node *myRight;
+//         int l, r;
+//         cin >> l >> r;
+//         Node *myLeft;
+//         Node *myRight;
 
-        if (l == -1)
-        {
-            myLeft = NULL;
-        }
-        else
-        {
-            myLeft = new Node(l);
-        }
-        if (r == -1)
-        {
-            myRight = NULL;
-        }
-        else
-        {
-            myRight = new Node(r);
-        }
+//         if (l == -1)
+//         {
+//             myLeft = NULL;
+//         }
+//         else
+//         {
+//             myLeft = new Node(l);
+//         }
+//         if (r == -1)
+//         {
+//             myRight = NULL;
+//         }
+//         else
+//         {
+//             myRight = new Node(r);
+//         }
 
-        f->left = myLeft;
-        f->right = myRight;
+//         f->left = myLeft;
+//         f->right = myRight;
 
-        if (f->left)
-            q.push(f->left);
-        if (f->right)
-            q.push(f->right);
-    }
-    return root;
-}
+//         if (f->left)
+//             q.push(f->left);
+//         if (f->right)
+//             q.push(f->right);
+//     }
+//     return root;
+// }
 
-void print(Node *root)
-{
-    if (root == NULL)
-        return;
+// void print(Node *root)
+// {
+//     if (root == NULL)
+//         return;
 
-    queue<Node *> q;
-    stack<int> s;
+//     queue<Node *> q;
+//     stack<int> s;
 
-    q.push(root);
+//     q.push(root);
 
-    while (!q.empty())
-    {
-        Node *f = q.front();
-        q.pop();
+//     while (!q.empty())
+//     {
+//         Node *f = q.front();
+//         q.pop();
 
-        s.push(f->val);
+//         s.push(f->val);
 
-        if (f->right)
-            q.push(f->right);
+//         if (f->right)
+//             q.push(f->right);
 
-        if (f->left )
-            q.push(f->left);
-    }
+//         if (f->left )
+//             q.push(f->left);
+//     }
 
-    while (!s.empty())
-    {
-        cout << s.top() << " ";
-        s.pop();
-    }
-}
+//     while (!s.empty())
+//     {
+//         cout << s.top() << " ";
+//         s.pop();
+//     }
+// }
 
-int main()
-{
+// int main()
+// {
 
-    Node *root = take_input();
-    print(root);
+//     Node *root = take_input();
+//     print(root);
 
-    return 0;
-}
+//     return 0;
+// }
 
 // #include <bits/stdc++.h>
 // using namespace std;

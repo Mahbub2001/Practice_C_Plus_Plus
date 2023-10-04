@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl "\n"
+
 #define yes cout << "YES" << endl
 #define no cout << "NO" << endl
 template <typename T>
@@ -8,7 +9,6 @@ T lcm(T a, T b)
 {
     return (a * (b / __gcd(a, b)));
 }
-
 const long long N = 2e7;
 bool is_prime[N + 1];
 vector<long long> primes;
@@ -44,20 +44,29 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    sieve();
-
-    int n;
-    while (cin >> n && n != 0)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        auto it = lower_bound(primes.begin(), primes.end(), n);
-        if (*it == n)
+        long long a, b, n;
+        cin >> a >> b >> n;
+
+        vector<long long> v(n, 0);
+        for (long long i = 0; i < n; i++)
         {
-            cout << 0 << endl;
+            cin >> v[i];
         }
-        else
+        sort(v.begin(), v.end());
+        long long sum = b - 1;
+        b = 1;
+        for (long long i = 0; i < n; i++)
         {
-            cout << *it - *(prev(it)) << endl;
+            b += v[i];
+            b = min(b, a);
+            sum += b - 1;
+            b = 1;
         }
+        cout<<sum + 1<< endl;
     }
 
     return 0;
